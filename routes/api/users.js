@@ -5,6 +5,8 @@ const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
+const config = require('config');
+const jwt = require('jsonwebtoken');
 
 // comment format: <REQ TYPE> <ENDPOINT>
 
@@ -52,10 +54,27 @@ router.post('/',
             // Encrypt password 
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
-            await user.save();
 
             // Return jsonwebtoken -> To log in user immediately after signing up for account
-            res.send('User registered')
+            const payload = {
+                user: {
+                    id: user.id
+                }
+            };
+            
+            jwt.sign(
+                payload, 
+                config.get('jwtSecret'),
+                { expiresIn: 3600 },
+                (err, token) => {
+                    // Send jwtToken if no errors (default status code of 200)
+                    if (err) throw err;
+                    return res.json({ token });
+                }
+            );
+            
+            // User only saved if no problems
+            await user.save();
         } catch(err) {
             console.error(err.message);
             res.status(500).send('Server Error');
