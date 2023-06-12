@@ -54,7 +54,7 @@ router.post('/',
             // Encrypt password 
             const salt = await bcrypt.genSalt(10);
             user.password = await bcrypt.hash(password, salt);
-
+            console.log(user.password)
             // Return jsonwebtoken -> To log in user immediately after signing up for account
             const payload = {
                 user: {
@@ -65,7 +65,7 @@ router.post('/',
             jwt.sign(
                 payload, 
                 config.get('jwtSecret'),
-                { expiresIn: 3600 },
+                { expiresIn: 360000 },
                 (err, token) => {
                     // Send jwtToken if no errors (default status code of 200)
                     if (err) throw err;
@@ -83,3 +83,4 @@ router.post('/',
 });
 
 module.exports = router; 
+
