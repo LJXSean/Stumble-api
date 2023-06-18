@@ -59,6 +59,7 @@ router.get('/user/:user_id', async (req, res) => {
     res.json(profile);
   } catch (error) {
     console.error(error.message);
+    // Ensures same error message for invalid profile ID
     if (error.kind === 'ObjectId') {
       return res.status(400).json({ msg: 'Profile not found' });
     }
@@ -99,7 +100,7 @@ router.post(
       linkedin,
     } = req.body;
 
-    // Build profile object
+    // Build profile object and link to user id
     const profileFields = {};
     profileFields.user = req.user.id;
     if (company) profileFields.company = company;
