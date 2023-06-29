@@ -39,7 +39,7 @@ router.post(
         // Format error message to match validation errors above
         return res
           .status(400)
-          .json({ error: [{ msg: 'User already exists' }] });
+          .json({ errors: [{ msg: 'User already exists' }] });
       }
 
       // Get user's gravatar
