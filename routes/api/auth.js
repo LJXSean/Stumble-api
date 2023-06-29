@@ -48,7 +48,7 @@ router.post(
         // Format error message to match validation errors above
         return res
           .status(400)
-          .json({ error: [{ msg: 'Invalid Credentials' }] });
+          .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
 
       const isMatch = await bcrypt.compare(password, user.password);
@@ -57,7 +57,7 @@ router.post(
         // Return same error message for no user/invalid password for security purposes
         return res
           .status(400)
-          .json({ error: [{ msg: 'Invalid Credentials' }] });
+          .json({ errors: [{ msg: 'Invalid Credentials' }] });
       }
 
       // Return jsonwebtoken -> To log in user immediately after signing up for account
