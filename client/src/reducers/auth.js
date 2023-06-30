@@ -5,6 +5,7 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  LOGOUT,
 } from '../actions/types';
 
 // Token stored in local storage, is user authenticated
@@ -41,6 +42,7 @@ export default function (state = initialState, action) {
     case REGISTER_FAIL:
     case AUTH_ERROR:
     case LOGIN_FAIL:
+    case LOGOUT:
       // Ensures any invalid token is removed
       localStorage.removeItem('token');
       return {

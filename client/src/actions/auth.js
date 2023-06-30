@@ -7,8 +7,11 @@ import {
   AUTH_ERROR,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  LOGOUT,
 } from './types';
 import setAuthToken from '../utils/setAuthToken';
+
+// methods to loaduser and register user that is called in the login/register pages
 
 // Load User
 export const loadUser = () => async (dispatch) => {
@@ -99,4 +102,11 @@ export const login = (email, password) => async (dispatch) => {
       type: LOGIN_FAIL,
     });
   }
+};
+
+// Logout / Clear profile
+export const logout = () => async (dispatch) => {
+  dispatch({
+    type: LOGOUT,
+  });
 };
