@@ -11,6 +11,7 @@ const Navbar = ({ auth, logout }) => {
     <ul>
       <li>
         <a onClick={logout} href='#!'>
+          {/* {' '} used to make a space after the FontAwesome icon */}
           <i className='fas fa-sign-out-alt'></i>{' '}
           <span className='hide-sm'>Logout</span>
         </a>
@@ -47,7 +48,9 @@ Navbar.propTypes = {
   logout: PropTypes.func.isRequired,
   auth: PropTypes.object.isRequired,
 };
+
 const mapStateToProps = (state) => ({
   auth: state.auth,
 });
+
 export default connect(mapStateToProps, { logout })(Navbar);
