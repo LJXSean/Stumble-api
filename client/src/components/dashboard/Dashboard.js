@@ -4,19 +4,20 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
+import { DashboardActions } from './DashboardActions';
 
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
-  profile: { profile, loading },
+  profile: { profile, isLoading },
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, [getCurrentProfile]);
+  }, []);
 
   return (
     <section className='container'>
-      {loading && profile === null ? (
+      {isLoading && profile === null ? (
         <Spinner />
       ) : (
         <>
@@ -26,7 +27,7 @@ const Dashboard = ({
           </p>
           {profile !== null ? (
             <>
-              <p>has</p>
+              <DashboardActions />
             </>
           ) : (
             <>

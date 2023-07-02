@@ -6,9 +6,9 @@ import { connect } from 'react-redux';
 // Uses React router to redirect to login page on protected endpoints if not logged in
 const PrivateRoute = ({
   component: Component,
-  auth: { isAuthenticated, loading },
+  auth: { isAuthenticated, isLoading },
 }) => {
-  if (isAuthenticated || loading) return <Component />;
+  if (isAuthenticated || isLoading) return <Component />;
 
   return <Navigate to='/login' />;
 };

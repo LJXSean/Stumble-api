@@ -1,25 +1,48 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { createProfile } from '../../actions/profile';
+import { createProfile, getCurrentProfile } from '../../actions/profile';
 
-const CreateProfile = ({ createProfile }) => {
-  const [formData, setFormData] = useState({
-    company: '',
-    website: '',
-    location: '',
-    status: '',
-    skills: '',
-    githubusername: '',
-    bio: '',
-    twitter: '',
-    facebook: '',
-    linkedin: '',
-    youtube: '',
-    instagram: '',
-  });
+const initialState = {
+  company: '',
+  website: '',
+  location: '',
+  status: '',
+  skills: '',
+  githubusername: '',
+  bio: '',
+  twitter: '',
+  facebook: '',
+  linkedin: '',
+  youtube: '',
+  instagram: '',
+};
 
+const ProfileForms = ({
+  profile: { profile, isLoading },
+  createProfile,
+  getCurrentProfile,
+}) => {
+  const [formData, setFormData] = useState(initialState);
+
+  useEffect(() => {
+    if (!profile) getCurrentProfile();
+
+    if (!isLoading && profile) {
+      const profileData = { ...initialState };
+      for (const key in profile) {
+        if (key in profileData) profileData[key] = profile[key];
+      }
+      for (const key in profile.social) {
+        if (key in profileData) profileData[key] = profile.social[key];
+      }
+      // Parse stored skills array into csv
+      if (Array.isArray(profileData.skills))
+        profileData.skills = profileData.skills.join(', ');
+      setFormData(profileData);
+    }
+  }, []);
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   const {
@@ -43,8 +66,9 @@ const CreateProfile = ({ createProfile }) => {
 
   const onSubmit = (e) => {
     e.preventDefault();
+    const exists = profile ? true : false;
     createProfile(formData).then((success) => {
-      if (success) navigate('/dashboard');
+      if (success && !exists) navigate('/dashboard');
     });
   };
 
@@ -216,17 +240,25 @@ const CreateProfile = ({ createProfile }) => {
           )}
 
           <input type='submit' className='btn btn-primary my-1' />
-          <a className='btn btn-light my-1' href='dashboard'>
+          <Link className='btn btn-light my-1' to='/dashboard'>
             Go Back
-          </a>
+          </Link>
         </form>
       </>
     </section>
   );
 };
 
-CreateProfile.propTypes = {
+ProfileForms.propTypes = {
   createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired,
+  profile: PropTypes.object.isRequired,
 };
 
-export default connect(null, { createProfile })(CreateProfile);
+const mapStateToProps = (state) => ({
+  profile: state.profile,
+});
+
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(
+  ProfileForms
+);

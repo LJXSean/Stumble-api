@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import { logout } from '../../actions/auth';
 
 const Navbar = ({ auth, logout }) => {
-  const { isAuthenticated, loading } = auth;
+  const { isAuthenticated, isLoading } = auth;
 
   const authLinks = (
     <ul>
@@ -45,7 +45,7 @@ const Navbar = ({ auth, logout }) => {
           <i className='fas fa-code'></i> Stumble
         </Link>
       </h1>
-      {!loading && <>{isAuthenticated ? authLinks : guestLinks}</>}
+      {!isLoading && <>{isAuthenticated ? authLinks : guestLinks}</>}
     </nav>
   );
 };

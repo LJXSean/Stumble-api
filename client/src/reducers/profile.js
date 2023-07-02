@@ -1,13 +1,18 @@
 // profile: user profile/profile visited
 // profiles: list of profiles on developer's page
 
-import { GET_PROFILE, PROFILE_ERROR, CLEAR_PROFILE } from '../actions/types';
+import {
+  GET_PROFILE,
+  PROFILE_ERROR,
+  CLEAR_PROFILE,
+  LOGOUT,
+} from '../actions/types';
 
 const initialState = {
   profile: null,
   profiles: [],
   repos: [],
-  loading: true,
+  isLoading: true,
   error: {},
 };
 
@@ -18,20 +23,20 @@ export default function (state = initialState, action) {
       return {
         ...state,
         profile: payload,
-        loading: false,
+        isLoading: false,
       };
     case PROFILE_ERROR:
       return {
         ...state,
         error: payload,
-        loading: false,
+        isLoading: false,
       };
     case CLEAR_PROFILE:
       return {
         ...state,
         profile: null,
         repos: [],
-        loading: true,
+        isLoading: true,
       };
     default:
       return state;
