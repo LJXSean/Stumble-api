@@ -16,7 +16,7 @@ const Navbar = ({ auth, logout }) => {
         </Link>
       </li>
       <li>
-        <a onClick={logout} href='#!'>
+        <a onClick={logout} href='/login'>
           {/* {' '} used to make a space after the FontAwesome icon, span hides label on mobile */}
           <i className='fas fa-sign-out-alt'></i>
           <span className='hide-sm'> Logout</span>

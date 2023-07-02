@@ -7,6 +7,8 @@ import Register from './components/auth/Register';
 import Alert from './components/layout/Alert';
 import Dashboard from './components/dashboard/Dashboard';
 import ProfileForm from './components/profile-forms/ProfileForm';
+import AddExperience from './components/profile-forms/AddExperience';
+import AddEducation from './components/profile-forms/AddEducation';
 import PrivateRoute from './components/routing/PrivateRoute';
 
 // Redux
@@ -34,19 +36,27 @@ const App = () => {
         <Navbar />
         <Routes>
           <Route path='/' element={<Landing />} />
-          <Route path='register' element={<Register />} />
-          <Route path='login' element={<Login />} />
+          <Route path='/register' element={<Register />} />
+          <Route path='/login' element={<Login />} />
           <Route
-            path='dashboard'
+            path='/dashboard'
             element={<PrivateRoute component={Dashboard} />}
           />
           <Route
-            path='create-profile'
+            path='/create-profile'
             element={<PrivateRoute component={ProfileForm} />}
           />
           <Route
-            path='edit-profile'
+            path='/edit-profile'
             element={<PrivateRoute component={ProfileForm} />}
+          />
+          <Route
+            path='/add-experience'
+            element={<PrivateRoute component={AddExperience} />}
+          />
+          <Route
+            path='/add-education'
+            element={<PrivateRoute component={AddEducation} />}
           />
           {/* <Route path='profile/:id' element={<Profile />} /> */}
         </Routes>
