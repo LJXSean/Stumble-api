@@ -7,6 +7,7 @@ const config = require('config');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
+const Post = require('../../models/Post');
 
 // comment format: <REQ TYPE> <ENDPOINT>
 
@@ -147,7 +148,22 @@ router.post(
 // @access  Private
 router.delete('/', auth, async (req, res) => {
   try {
-    // @todo - remove users posts
+    // Remove users information from posts
+    const deletedUser = await User.findById('64a18b5282914cb3b2e57a74').select(
+      '-password'
+    );
+
+    await Post.updateMany(
+      { user: req.user.id },
+      {
+        $set: {
+          user: deletedUser._id,
+          avatar: deletedUser.avatar,
+          name: deletedUser.name,
+        },
+      }
+    );
+
     // Removes profile
     await Profile.findOneAndRemove({ user: req.user.id });
     // Remove user

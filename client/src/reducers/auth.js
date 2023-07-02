@@ -6,6 +6,7 @@ import {
   LOGIN_SUCCESS,
   LOGIN_FAIL,
   LOGOUT,
+  ACCOUNT_DELETED,
 } from '../actions/types';
 
 // Token stored in local storage, is user authenticated
@@ -43,6 +44,7 @@ export default function auth(state = initialState, action) {
     case AUTH_ERROR:
     case LOGIN_FAIL:
     case LOGOUT:
+    case ACCOUNT_DELETED:
       // Ensures any invalid token is removed
       localStorage.removeItem('token');
       return {
