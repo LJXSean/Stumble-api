@@ -10,10 +10,16 @@ const Navbar = ({ auth, logout }) => {
   const authLinks = (
     <ul>
       <li>
+        <Link to='/dashboard'>
+          <i className='fas fa-user'></i>
+          <span className='hide-sm'> Dashboard</span>
+        </Link>
+      </li>
+      <li>
         <a onClick={logout} href='#!'>
-          {/* {' '} used to make a space after the FontAwesome icon */}
-          <i className='fas fa-sign-out-alt'></i>{' '}
-          <span className='hide-sm'>Logout</span>
+          {/* {' '} used to make a space after the FontAwesome icon, span hides label on mobile */}
+          <i className='fas fa-sign-out-alt'></i>
+          <span className='hide-sm'> Logout</span>
         </a>
       </li>
     </ul>
