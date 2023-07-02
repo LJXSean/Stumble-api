@@ -54,6 +54,9 @@ export default function profile(state = initialState, action) {
         loading: false,
       };
     default:
-      return state;
+      return {
+        ...state,
+        loading: true,
+      };
   }
 }
