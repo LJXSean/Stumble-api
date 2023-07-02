@@ -43,6 +43,7 @@ const ProfileForms = ({
       setFormData(profileData);
     }
   }, []);
+
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
   const {

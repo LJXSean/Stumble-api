@@ -16,7 +16,6 @@ const initialState = {
 
 const AddEducation = ({ addEducation }) => {
   const [formData, setFormData] = useState(initialState);
-  const [toDateDisabled, toggleDisabled] = useState(false);
 
   const { school, degree, fieldofstudy, from, to, current, description } =
     formData;
@@ -38,13 +37,7 @@ const AddEducation = ({ addEducation }) => {
         <i className='fas fa-code-branch' /> Add your education records
       </p>
       <small>* = required field</small>
-      <form
-        className='form'
-        onSubmit={(e) => {
-          e.preventDefault();
-          addEducation(formData).then(() => navigate('/dashboard'));
-        }}
-      >
+      <form className='form' onSubmit={(e) => onSubmit(e)}>
         <div className='form-group'>
           <input
             type='text'

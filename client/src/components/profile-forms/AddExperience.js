@@ -16,7 +16,6 @@ const initialState = {
 
 const AddExperience = ({ addExperience }) => {
   const [formData, setFormData] = useState(initialState);
-  const [toDateDisabled, toggleDisabled] = useState(false);
 
   const { company, title, location, from, to, current, description } = formData;
 
@@ -84,9 +83,8 @@ const AddExperience = ({ addExperience }) => {
               name='current'
               checked={current}
               value={current}
-              onChange={(e) => {
+              onChange={() => {
                 setFormData({ ...formData, current: !current });
-                toggleDisabled(!toDateDisabled);
               }}
             />{' '}
             Current Job
@@ -99,7 +97,7 @@ const AddExperience = ({ addExperience }) => {
             name='to'
             value={to}
             onChange={(e) => onChange(e)}
-            disabled={toDateDisabled ? 'disabled' : ''}
+            disabled={current}
           />
         </div>
         <div className='form-group'>
@@ -113,7 +111,7 @@ const AddExperience = ({ addExperience }) => {
           ></textarea>
         </div>
         <input type='submit' className='btn btn-primary my-1' />
-        <Link className='btn btn-light my-1' to='dashboard.html'>
+        <Link className='btn btn-light my-1' to='/dashboard'>
           Go Back
         </Link>
       </form>

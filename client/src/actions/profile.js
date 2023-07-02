@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { setAlert } from './alert';
-import { useNavigate } from 'react-router-dom';
 import { GET_PROFILE, PROFILE_ERROR, UPDATE_PROFILE } from './types';
 
 /*
