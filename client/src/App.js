@@ -16,14 +16,8 @@ import PrivateRoute from './components/routing/PrivateRoute';
 import { Provider } from 'react-redux';
 import store from './store';
 import { loadUser } from './actions/auth';
-import setAuthToken from './utils/setAuthToken';
 
 import './App.css';
-
-// Only checks first time if user loaded
-// if (localStorage.token) {
-//   setAuthToken(localStorage.token);
-// }
 
 const App = () => {
   // useEffect only runs when app is loaded/mounted due to []

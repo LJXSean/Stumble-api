@@ -42,7 +42,7 @@ const ProfileForms = ({
         profileData.skills = profileData.skills.join(', ');
       setFormData(profileData);
     }
-  }, []);
+  }, [getCurrentProfile, isLoading, profile]);
 
   const [displaySocialInputs, toggleSocialInputs] = useState(false);
 
@@ -62,12 +62,13 @@ const ProfileForms = ({
   } = formData;
 
   const navigate = useNavigate();
+  const exists = profile ? true : false;
+
   const onChange = (e) =>
     setFormData({ ...formData, [e.target.name]: e.target.value });
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const exists = profile ? true : false;
     createProfile(formData).then((success) => {
       if (success && !exists) navigate('/dashboard');
     });
@@ -75,7 +76,11 @@ const ProfileForms = ({
 
   return (
     <section className='container'>
-      <h1 className='large text-primary'>Create Your Profile</h1>
+      {exists ? (
+        <h1 className='large text-primary'>Edit Your Profile</h1>
+      ) : (
+        <h1 className='large text-primary'>Create Your Profile</h1>
+      )}
       <p className='lead'>
         <i className='fas fa-user'></i> Let's get some information to make your
         profile stand out
