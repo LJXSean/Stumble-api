@@ -5,32 +5,6 @@ import { connect } from 'react-redux';
 import { getCurrentProfile } from '../../actions/profile';
 import Spinner from '../layout/Spinner';
 
-// const Dashboard = ({
-//   getCurrentProfile,
-//   auth: { user },
-//   profile: { profile, loading },
-// }) => {
-//   useEffect(() => {
-//     getCurrentProfile();
-//   }, []);
-
-//   const dashboardContent = (
-//     <>
-//       <h1 className='large text-primary'>Dashboard</h1>
-//       <p className='lead'>
-//         <i className='fas fa-user'></i> Welcome {user && user.name}
-//       </p>
-//       {profile !== null ? <>has</> : <>has not</>}
-//     </>
-//   );
-
-//   return (
-//     <section className='container'>
-//       {loading && profile === null ? <Spinner /> : dashboardContent}
-//     </section>
-//   );
-// };
-
 const Dashboard = ({
   getCurrentProfile,
   auth: { user },
@@ -38,7 +12,7 @@ const Dashboard = ({
 }) => {
   useEffect(() => {
     getCurrentProfile();
-  }, []);
+  }, [getCurrentProfile]);
 
   return (
     <section className='container'>
