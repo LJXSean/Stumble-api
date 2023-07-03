@@ -4,6 +4,9 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getGithubRepos } from '../../actions/profile';
 
+/* @todo: ask user to type in github repos belonging to him to display 
+since unable to get pinned repos */
+
 const ProfileGithub = ({ username, getGithubRepos, repos }) => {
   useEffect(() => {
     getGithubRepos(username);

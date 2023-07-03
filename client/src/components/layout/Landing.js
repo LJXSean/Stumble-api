@@ -12,7 +12,11 @@ function Number({ n }) {
     delay: 200,
     config: { mass: 1, tension: 20, friction: 10 },
   });
-  return <animated.span>{number.to((n) => n.toFixed(0))}</animated.span>;
+  return (
+    <animated.span className='highlight-text'>
+      {number.to((n) => n.toFixed(0))}
+    </animated.span>
+  );
 }
 
 const Landing = ({ isAuthenticated, profiles, getProfiles }) => {
