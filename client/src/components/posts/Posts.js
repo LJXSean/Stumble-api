@@ -5,7 +5,8 @@ import Spinner from '../layout/Spinner';
 import { getPosts } from '../../actions/post';
 import PostItem from './PostItem';
 
-const Posts = ({ getPosts, post: { posts, isLoading } }) => {
+const Posts = ({ getPosts, post }) => {
+  const { posts, isLoading } = post;
   useEffect(() => {
     getPosts();
   }, [getPosts]);
