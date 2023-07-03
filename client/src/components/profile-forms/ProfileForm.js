@@ -27,7 +27,7 @@ const ProfileForms = ({
   const [formData, setFormData] = useState(initialState);
 
   useEffect(() => {
-    if (!profile) getCurrentProfile();
+    if (profile !== null) getCurrentProfile();
 
     if (!isLoading && profile) {
       const profileData = { ...initialState };
