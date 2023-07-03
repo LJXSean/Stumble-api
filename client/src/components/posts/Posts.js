@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getPosts } from '../../actions/post';
 import PostItem from './PostItem';
+import PostForm from './PostForm';
 
 const Posts = ({ getPosts, post }) => {
   const { posts, isLoading } = post;
@@ -21,7 +22,7 @@ const Posts = ({ getPosts, post }) => {
           <p className='lead'>
             <i className='fas fa-user'></i> Welcome to the community
           </p>
-          {/*postform*/}
+          <PostForm />
           {posts.length > 0 && (
             <div className='posts'>
               {posts.map((post) => (
