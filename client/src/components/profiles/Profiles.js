@@ -5,13 +5,13 @@ import Spinner from '../layout/Spinner';
 import ProfileItem from './ProfileItem';
 import { getProfiles } from '../../actions/profile';
 
-const Profiles = ({ getProfiles, profile: { profiles, loading } }) => {
+const Profiles = ({ getProfiles, profile: { profiles, isLoading } }) => {
   useEffect(() => {
     getProfiles();
   }, [getProfiles]);
   return (
     <section className='container'>
-      {loading ? (
+      {isLoading ? (
         <Spinner />
       ) : (
         <>

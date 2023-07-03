@@ -74,6 +74,10 @@ const ProfileForms = ({
     });
   };
 
+  const goBack = () => {
+    navigate(-1);
+  };
+
   return (
     <section className='container'>
       {exists ? (
@@ -245,9 +249,9 @@ const ProfileForms = ({
         )}
 
         <input type='submit' className='btn btn-primary my-1' />
-        <Link className='btn btn-light my-1' to='/dashboard'>
+        <span className='btn btn-light my-1' onClick={goBack}>
           Go Back
-        </Link>
+        </span>
       </form>
     </section>
   );

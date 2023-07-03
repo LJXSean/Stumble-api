@@ -32,7 +32,7 @@ export default function profile(state = initialState, action) {
       return {
         ...state,
         profiles: payload,
-        loading: false,
+        isLoading: false,
       };
     case PROFILE_ERROR:
       return {
@@ -51,12 +51,9 @@ export default function profile(state = initialState, action) {
       return {
         ...state,
         repos: payload,
-        loading: false,
+        isLoading: false,
       };
     default:
-      return {
-        ...state,
-        loading: true,
-      };
+      return state;
   }
 }
