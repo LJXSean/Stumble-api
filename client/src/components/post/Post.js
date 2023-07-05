@@ -7,7 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 import PostItem from '../posts/PostItem';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
-const Post = ({ getPost, post: { post, loading } }) => {
+const Post = ({ getPost, post: { post, isLoading } }) => {
   const { id } = useParams();
   useEffect(() => {
     getPost(id);
@@ -15,7 +15,7 @@ const Post = ({ getPost, post: { post, loading } }) => {
 
   return (
     <section className='container'>
-      {loading || post === null ? (
+      {isLoading || post === null ? (
         <Spinner />
       ) : (
         <>

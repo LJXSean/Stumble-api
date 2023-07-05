@@ -44,7 +44,7 @@ router.post(
 // @route   GET api/posts
 // @desc    Get all posts
 // @access  Private (Have to be logged in to see the posts)
-router.get('/', auth, async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const posts = await Post.find().sort({ date: -1 });
     res.json(posts);
