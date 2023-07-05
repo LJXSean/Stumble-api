@@ -15,7 +15,7 @@ const User = require('../../models/User');
 // @access  Private
 router.post(
   '/',
-  [auth, [check('text', 'Text is required').notEmpty()]],
+  [auth, [check('title', 'Title is required').notEmpty()]],
   async (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -26,7 +26,8 @@ router.post(
       const user = await User.findById(req.user.id).select('-password');
 
       const newPost = new Post({
-        text: req.body.text,
+        title: req.body.title,
+        body: req.body.body,
         name: user.name,
         avatar: user.avatar,
         user: req.user.id,
@@ -57,7 +58,7 @@ router.get('/', async (req, res) => {
 // @route   GET api/posts/:post_id
 // @desc    Get post by id
 // @access  Private (Have to be logged in to see the posts)
-router.get('/:post_id', auth, async (req, res) => {
+router.get('/:post_id', async (req, res) => {
   try {
     const post = await Post.findById(req.params.post_id);
     if (!post) {

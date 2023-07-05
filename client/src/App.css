@@ -332,6 +332,19 @@ button {
   padding: 0 16px;
 }
 
+.create-formbox {
+  resize: none;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: block;
+  width: 100%;
+  padding: 12px 8px;
+  outline: none;
+  border: 1px solid var(--light-color);
+  border-radius: 4px;
+  margin-bottom: 16px;
+}
+
 .create {
   background-color: var(--primary-color);
   display: flex;
@@ -522,6 +535,56 @@ button {
   align-items: center;
 }
 
+.full-post {
+  margin: 16px 0px;
+  padding: 16px;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+  background-color:#dfdfdf;
+}
+
+.full-post-header {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 16px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  position: relative;
+}
+
+.full-post-tag {
+  margin: 16px 0px;
+  overflow: hidden;
+  background-color: #28a745;
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+.full-post-title {
+  display: inline;
+  position: relative;
+  text-decoration: none;
+  word-break: break-word;
+}
+
+.full-post-body {
+  margin-top: 32px;
+  padding-left: 0;
+}
+
+.header-img {
+  margin-right: 8px;
+  margin-bottom: 0px;
+  border-radius: 60%;
+  width: 26px;
+  height: 26px;
+}
+
+.header-element {
+  margin: 5px;
+}
 .post>div:first-child {
   text-align: center;
 }

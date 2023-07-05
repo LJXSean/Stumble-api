@@ -4,15 +4,15 @@ import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getPost } from '../../actions/post';
 import { Link, useParams } from 'react-router-dom';
-import PostItem from '../posts/PostItem';
+import FullPost from './FullPost';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
 const Post = ({ getPost, post: { post, isLoading } }) => {
   const { id } = useParams();
   useEffect(() => {
     getPost(id);
-  }, [getPost, id]);
-
+  }, []);
+  console.log(post);
   return (
     <section className='container'>
       {isLoading || post === null ? (
@@ -22,7 +22,7 @@ const Post = ({ getPost, post: { post, isLoading } }) => {
           <Link to='/posts' className='btn'>
             Back To Posts
           </Link>
-          <PostItem post={post} showActions={false} />
+          <FullPost post={post} showActions={false} />
           <CommentForm postId={post._id} />
           <div className='comments'>
             {post.comments.map((comment) => (
