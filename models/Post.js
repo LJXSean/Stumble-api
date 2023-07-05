@@ -5,9 +5,12 @@ const PostSchema = new mongoose.Schema({
   user: {
     type: mongoose.Schema.Types.ObjectId,
   },
-  text: {
+  title: {
     type: String,
     required: true,
+  },
+  body: {
+    type: String,
   },
   name: {
     type: String,
