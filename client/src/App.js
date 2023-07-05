@@ -68,10 +68,7 @@ const App = () => {
             path='/submit'
             element={<PrivateRoute component={PostForm} />}
           />
-          <Route
-            path='/posts/:id'
-            element={<PrivateRoute component={Post} />}
-          />
+          <Route path='/posts/:id' element={<Post />} />
         </Routes>
       </Router>
     </Provider>

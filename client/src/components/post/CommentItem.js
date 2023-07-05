@@ -22,22 +22,23 @@ const CommentItem = ({
       <div>
         <p class='my-1'>{text}</p>
         <p class='post-date'>Posted on {formatDate(date)}</p>
-        {!auth.loading && user === auth.user._id && (
-          <button
-            onClick={() => deleteComment(postId, _id)}
-            type='button'
-            className='btn btn-danger'
-          >
-            <i className='fas fa-times'></i>
-          </button>
-        )}
+        {auth.isAuthenticated === true &&
+          !auth.loading &&
+          user === auth.user._id && (
+            <button
+              onClick={() => deleteComment(postId, _id)}
+              type='button'
+              className='btn btn-danger'
+            >
+              <i className='fas fa-times'></i>
+            </button>
+          )}
       </div>
     </div>
   );
 };
 
 CommentItem.propTypes = {
-  postId: PropTypes.number.isRequired,
   comment: PropTypes.object.isRequired,
   auth: PropTypes.object.isRequired,
   deleteComment: PropTypes.func.isRequired,

@@ -2,9 +2,13 @@ import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { addPost } from '../../actions/post';
+import { useNavigate } from 'react-router-dom';
 
 const PostForm = ({ addPost }) => {
-  const [text, setText] = useState(' ');
+  const [body, setBody] = useState();
+  const [title, setTitle] = useState();
+  const navigate = useNavigate();
+
   return (
     <div className='container'>
       {' '}
@@ -16,20 +20,32 @@ const PostForm = ({ addPost }) => {
           class='form my-1'
           onSubmit={(e) => {
             e.preventDefault();
-            addPost({ text });
-            setText(' ');
+            addPost({ title, body });
+            setTitle(' ');
+            setBody(' ');
+            navigate('/posts');
           }}
         >
           <textarea
-            name='text'
+            name='title'
+            className='create-formbox'
             cols='30'
-            rows='5'
-            placeholder='Create a post'
-            value={text}
-            onChange={(e) => setText(e.target.value)}
+            rows='1'
+            placeholder='Title'
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             required
           ></textarea>
-          <input type='submit' class='btn btn-dark my-1' value='Submit' />
+          <textarea
+            name='body'
+            className='create-formbox'
+            cols='30'
+            rows='10'
+            placeholder='Text (optional)'
+            value={body}
+            onChange={(e) => setBody(e.target.value)}
+          ></textarea>
+          <input type='submit' class='btn btn-dark my-1' value='Submit'></input>{' '}
         </form>
       </div>
     </div>

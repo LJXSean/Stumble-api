@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Spinner from '../layout/Spinner';
 import { getPosts } from '../../actions/post';
-import PostItem from './PostItem';
+import PostCard from './PostCard';
 import PostBox from './PostBox';
 
 const Posts = ({ getPosts, post }) => {
@@ -26,7 +26,7 @@ const Posts = ({ getPosts, post }) => {
           {posts.length > 0 && (
             <div className='posts'>
               {posts.map((post) => (
-                <PostItem key={post._id} post={post} />
+                <PostCard key={post._id} post={post} />
               ))}
             </div>
           )}
