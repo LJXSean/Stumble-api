@@ -1,0 +1,44 @@
+.my-btn {
+  border-radius: 4px;
+  display: inline-block;
+  background: #82a7ff;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+.primary-btn {
+  background: linear-gradient(45deg, #e66465, #9198e5);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, #e66465, #9198e5);
+}
+
+.sec-btn {
+  background: white;
+}
+
+.landing-bottom {
+  margin-top: 100px;
+  position: relative;
+  background-color: #000;
+  color: #e31616;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  display: flex;
+  flex-direction: row;
+}
+
+.subTitle {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
