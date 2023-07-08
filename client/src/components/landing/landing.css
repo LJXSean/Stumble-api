@@ -26,16 +26,50 @@
 }
 
 .landing-bottom {
-  margin-top: 100px;
+  margin: auto;
+  margin-top: 10px;
   position: relative;
   background-color: #000;
   color: #e31616;
   height: 100%;
   width: 80%;
-  margin: auto;
   display: flex;
   flex-direction: row;
 }
+
+.cards-container {
+  position: relative;
+  color: #e31616;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  /* background-color: yellow; */
+  color: #e31616;
+  padding:10px;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 33.333333%;
+}
+
+.cardItem{
+  padding: 5px;
+}
+
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  font-size: 11px;
+  align-items: center;
+}
+
 
 .subTitle {
   position: relative;
