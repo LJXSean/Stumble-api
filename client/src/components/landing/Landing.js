@@ -65,36 +65,6 @@ const Landing = ({ isAuthenticated, profiles, getProfiles }) => {
         <LandingCard />
         <LandingCard />
       </div>
-
-      <div className='landing-bottom'>
-        <ul>
-          <li style={{ padding: '5px' }}>sdf</li>
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>{' '}
-          <li style={{ padding: '5px' }}>sdf</li>
-        </ul>
-      </div>
     </div>
   );
 };

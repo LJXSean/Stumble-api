@@ -39,7 +39,6 @@
 
 .cards-container {
   position: relative;
-  color: #e31616;
   height: 100%;
   width: 80%;
   margin: auto;
@@ -51,7 +50,6 @@
 .card {
   position: relative;
   /* background-color: yellow; */
-  color: #e31616;
   padding:10px;
   display: flex;
   flex-direction: row;
@@ -70,9 +68,22 @@
   align-items: center;
 }
 
+.link {
+  color: #000;
+}
+
 
 .subTitle {
   position: relative;
   width: 80%;
   margin: auto;
+}
+
+.cardIndex {
+  color: #e3e3e3d6;
+}
+
+.date {
+  font-size: small;
+  margin-right: 5px;
 }

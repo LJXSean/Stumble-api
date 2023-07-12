@@ -5,7 +5,7 @@ import icon from '../../img/icon.png';
 const LandingCard = (props) => {
   return (
     <div className='card'>
-      <h1>01</h1>
+      <h1 className='cardIndex'>01</h1>
       <div className='cardItem'>
         <div className='cardHeader'>
           {' '}
@@ -15,11 +15,18 @@ const LandingCard = (props) => {
             alt='icon'
             style={{ color: '#e31616', height: '38px', objectFit: 'contain' }}
           />
-          <span>Profile img and Name</span>
+          <a href='profiles' className='link'>
+            Profile img and Name
+          </a>
         </div>
 
-        <h4>Post Txt</h4>
-        <span>date</span>
+        <h4>
+          <a href='posts' className='link'>
+            What do you guys think about CS2103T?
+          </a>
+        </h4>
+        <span className='date'>Jun 9</span>
+        <span className='date'>|| 12 Comments</span>
       </div>
     </div>
   );

@@ -405,6 +405,7 @@ button {
   height: 70vh;
   border-bottom: #000 1px;
   margin-bottom: 20px;
+  border-bottom: thick double rgba(0, 0, 0, 0.6);
 }
 
 .landing-inner {
