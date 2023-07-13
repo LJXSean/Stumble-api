@@ -6,6 +6,7 @@ import { getProfiles } from '../../actions/profile';
 import { useSpring, animated } from 'react-spring';
 import './landing.css';
 import LandingCard from './LandingCard';
+import { getPosts } from '../../actions/post';
 
 function Number({ n }) {
   const { number } = useSpring({
@@ -21,10 +22,17 @@ function Number({ n }) {
   );
 }
 
-const Landing = ({ isAuthenticated, profiles, getProfiles }) => {
+const Landing = ({
+  isAuthenticated,
+  profiles,
+  getProfiles,
+  getPosts,
+  post: { posts },
+}) => {
   useEffect(() => {
     getProfiles();
-  }, [getProfiles]);
+    getPosts();
+  }, [getProfiles, getPosts]);
 
   if (isAuthenticated) {
     return <Navigate to='/dashboard' />;
@@ -58,12 +66,11 @@ const Landing = ({ isAuthenticated, profiles, getProfiles }) => {
         Trending on Stumble
       </h4>
       <div className='cards-container'>
-        <LandingCard />
-        <LandingCard />
-        <LandingCard />
-        <LandingCard />
-        <LandingCard />
-        <LandingCard />
+        {posts
+          .sort((a, b) => b.comments.length - a.comments.length)
+          .map((post, index) => (
+            <LandingCard posts={post} i={index} />
+          ))}
       </div>
     </div>
   );
@@ -72,11 +79,14 @@ const Landing = ({ isAuthenticated, profiles, getProfiles }) => {
 Landing.propTypes = {
   isAuthenticated: PropTypes.bool,
   profiles: PropTypes.number,
+  post: PropTypes.object.isRequired,
+  getPosts: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   isAuthenticated: state.auth.isAuthenticated,
   profiles: state.profile.profiles,
+  post: state.post,
 });
 
-export default connect(mapStateToProps, { getProfiles })(Landing);
+export default connect(mapStateToProps, { getProfiles, getPosts })(Landing);
