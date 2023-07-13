@@ -1,32 +1,36 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import icon from '../../img/icon.png';
+import formatDate from '../../utils/formatDate';
 
-const LandingCard = (props) => {
+const LandingCard = ({
+  posts: { avatar, name, title, date, comments, _id },
+  i,
+}) => {
   return (
     <div className='card'>
-      <h1 className='cardIndex'>01</h1>
+      <h1 className='cardIndex'>0{i + 1}</h1>
       <div className='cardItem'>
         <div className='cardHeader'>
           {' '}
           <img
             className='header-img'
-            src={icon}
+            src={avatar}
             alt='icon'
             style={{ color: '#e31616', height: '38px', objectFit: 'contain' }}
           />
           <a href='profiles' className='link'>
-            Profile img and Name
+            {name}
           </a>
         </div>
 
         <h4>
-          <a href='posts' className='link'>
-            What do you guys think about CS2103T?
+          <a href={`posts/${_id}`} className='link'>
+            {title}
           </a>
         </h4>
-        <span className='date'>Jun 9</span>
-        <span className='date'>|| 12 Comments</span>
+        <span className='date'>{formatDate(date)}</span>
+        <span className='date'>|| {comments.length} Comments</span>
       </div>
     </div>
   );
