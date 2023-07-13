@@ -152,6 +152,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  z-index: 1;
 }
 
 .badge {
@@ -524,6 +525,10 @@ button {
   flex-basis: 20%;
 }
 
+.fragment {
+  position: relative;
+}
+
 /* Posts Page */
 .post-form .post-form-header {
   background: var(--primary-color);
@@ -531,10 +536,22 @@ button {
 }
 
 .post {
+  position: relative;
   display: grid;
   grid-template-columns: 1fr 4fr;
   grid-gap: 2rem;
   align-items: center;
+  z-index: 1;
+}
+
+.postLink:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  z-index: 0;
 }
 
 .full-post {
