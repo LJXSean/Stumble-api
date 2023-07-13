@@ -5,7 +5,6 @@ const { check, validationResult } = require('express-validator');
 const User = require('../../models/User');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
-const config = require('config');
 const jwt = require('jsonwebtoken');
 
 // comment format: <REQ TYPE> <ENDPOINT>
@@ -71,7 +70,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        process.env.JWTSECRET,
         { expiresIn: 360000 },
         (err, token) => {
           // Send jwtToken if no errors (default status code of 200)

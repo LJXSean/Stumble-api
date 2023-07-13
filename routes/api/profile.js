@@ -3,7 +3,6 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const { check, validationResult } = require('express-validator');
 const request = require('request');
-const config = require('config');
 
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
@@ -329,7 +328,7 @@ router.get('/github/:username', (req, res) => {
       method: 'GET',
       headers: {
         'user-agent': 'node.js',
-        Authorization: `token ${config.get('githubToken')}`,
+        Authorization: `token ${process.env.GITHUBTOKEN}`,
       },
     };
 

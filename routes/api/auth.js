@@ -3,7 +3,6 @@ const router = express.Router();
 const auth = require('../../middleware/auth');
 const User = require('../../models/User');
 const { check, validationResult } = require('express-validator');
-const config = require('config');
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 
@@ -69,7 +68,7 @@ router.post(
 
       jwt.sign(
         payload,
-        config.get('jwtSecret'),
+        process.env.JWTSECRET,
         { expiresIn: 3600 },
         (err, token) => {
           // Send jwtToken if no errors (default status code of 200)
