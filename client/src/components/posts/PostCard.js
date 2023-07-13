@@ -16,7 +16,8 @@ const PostItem = ({
   console.log(color);
 
   return (
-    <a href={`/posts/${_id}`}>
+    <div className='fragment'>
+      <a className='postLink' href={`/posts/${_id}`} />
       <div className='post bg-white p-1 my-1'>
         <div>
           <Link to={`/profile/${user}`}>
@@ -64,7 +65,7 @@ const PostItem = ({
           )}
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 
