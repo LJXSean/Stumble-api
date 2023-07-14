@@ -68,6 +68,7 @@ const Landing = ({
       <div className='cards-container'>
         {posts
           .sort((a, b) => b.comments.length - a.comments.length)
+          .slice(0, 6)
           .map((post, index) => (
             <LandingCard posts={post} i={index} />
           ))}

@@ -11,10 +11,11 @@ const Post = ({ getPost, post: { post, isLoading, error } }) => {
   const { id } = useParams();
   useEffect(() => {
     getPost(id);
-  }, []);
+  }, [getPost]);
+  console.log(Object.keys(error).length === 0);
   return (
     <section className='container'>
-      {error != null ? (
+      {Object.keys(error).length !== 0 ? (
         <span>ERROR: Cannot Find Post</span>
       ) : isLoading || post === null ? (
         <Spinner />
