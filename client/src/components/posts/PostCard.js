@@ -4,19 +4,33 @@ import { Link } from 'react-router-dom';
 import formatDate from '../../utils/formatDate';
 import { connect } from 'react-redux';
 import { addLike, removeLike, deletePost } from '../../actions/post';
+
+function commentLabel(n) {
+  const label = n > 1 ? 'Comments' : 'Comment';
+  return (
+    <span>
+      {n} {label}
+    </span>
+  );
+}
 const PostItem = ({
   addLike,
   removeLike,
   deletePost,
   auth,
-  post: { _id, name, title, body, avatar, user, likes, comments, date },
+  post: { _id, name, title, avatar, user, likes, comments, date },
   showActions,
 }) => {
-  const color = likes.some((like) => user === like.user) ? '#FF4433' : '#000';
-  console.log(color);
+  let color = '#000';
+  if (auth.isAuthenticated && !auth.isLoading && auth.user) {
+    color = likes.some((like) => auth.user._id === like.user)
+      ? '#2E8B57'
+      : '#000';
+  }
 
   return (
-    <a href={`/posts/${_id}`}>
+    <div className='fragment'>
+      <a className='postLink' href={`/posts/${_id}`} />
       <div className='post bg-white p-1 my-1'>
         <div>
           <Link to={`/profile/${user}`}>
@@ -45,12 +59,13 @@ const PostItem = ({
               >
                 <i className='fas fa-thumbs-down'></i>
               </button>
-              <span className='btn'>
+              <a className='btn' href={`/posts/${_id}`}>
                 <i class='fa-solid fa-comment'></i>{' '}
-                {comments.length > 0 && <span>{comments.length} Comment</span>}
-              </span>
+                {comments.length > 0 && commentLabel(comments.length)}
+              </a>
               {auth.isAuthenticated &&
                 !auth.isLoading &&
+                auth.user &&
                 user === auth.user._id && (
                   <button
                     onClick={() => deletePost(_id)}
@@ -64,7 +79,7 @@ const PostItem = ({
           )}
         </div>
       </div>
-    </a>
+    </div>
   );
 };
 

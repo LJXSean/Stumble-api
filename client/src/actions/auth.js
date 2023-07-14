@@ -61,7 +61,6 @@ export const register =
       // errors object sent by backend,
       // contains an array of objects with a msg field (see /api/users)
       const errors = err.response.data.errors;
-      console.log(errors);
       if (errors) {
         errors.forEach((error) => dispatch(setAlert(error.msg, 'danger')));
       }
@@ -107,7 +106,6 @@ export const login = (email, password) => async (dispatch) => {
 
 // Logout / Clear profile
 export const logout = () => async (dispatch) => {
-  console.log('logging out');
   dispatch({
     type: CLEAR_PROFILE,
   });

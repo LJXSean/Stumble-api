@@ -55,6 +55,9 @@ export const addLike = (postId) => async (dispatch) => {
       payload: { postId, likes: res.data },
     });
   } catch (err) {
+    const error = err.response.data.msg;
+    dispatch(setAlert(error, 'danger'));
+
     dispatch({
       type: POST_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },
@@ -72,6 +75,8 @@ export const removeLike = (postId) => async (dispatch) => {
       payload: { postId, likes: res.data },
     });
   } catch (err) {
+    const error = err.response.data.msg;
+    dispatch(setAlert(error, 'danger'));
     dispatch({
       type: POST_ERROR,
       payload: { msg: err.response.statusText, status: err.response.status },

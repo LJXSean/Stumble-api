@@ -6,7 +6,7 @@ import { getPosts } from '../../actions/post';
 import PostCard from './PostCard';
 import PostBox from './PostBox';
 
-const Posts = ({ getPosts, post }) => {
+const Posts = ({ getPosts, post, isAuthenticated }) => {
   const { posts, isLoading } = post;
   useEffect(() => {
     getPosts();
@@ -22,7 +22,7 @@ const Posts = ({ getPosts, post }) => {
           <p className='lead'>
             <i className='fas fa-user'></i> Welcome to the community
           </p>
-          <PostBox />
+          {isAuthenticated && <PostBox />}
           {posts.length > 0 && (
             <div className='posts'>
               {posts.map((post) => (
@@ -39,10 +39,12 @@ const Posts = ({ getPosts, post }) => {
 Posts.propTypes = {
   getPosts: PropTypes.func.isRequired,
   post: PropTypes.object.isRequired,
+  isAuthenticated: PropTypes.bool.isRequired,
 };
 
 const mapStateToProps = (state) => ({
   post: state.post,
+  isAuthenticated: state.auth.isAuthenticated,
 });
 
 export default connect(mapStateToProps, { getPosts })(Posts);

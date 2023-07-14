@@ -59,7 +59,7 @@ router.post(
       // Encrypt password
       const salt = await bcrypt.genSalt(10);
       user.password = await bcrypt.hash(password, salt);
-      console.log(user.password);
+
       // Return jsonwebtoken -> To log in user immediately after signing up for account
       const payload = {
         user: {
