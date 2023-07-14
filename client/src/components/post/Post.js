@@ -7,15 +7,16 @@ import { Link, useParams } from 'react-router-dom';
 import FullPost from './FullPost';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
-const Post = ({ getPost, post: { post, isLoading } }) => {
+const Post = ({ getPost, post: { post, isLoading, error } }) => {
   const { id } = useParams();
   useEffect(() => {
     getPost(id);
   }, []);
-  console.log(post);
   return (
     <section className='container'>
-      {isLoading || post === null ? (
+      {error != null ? (
+        <span>ERROR: Cannot Find Post</span>
+      ) : isLoading || post === null ? (
         <Spinner />
       ) : (
         <>

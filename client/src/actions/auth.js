@@ -106,7 +106,6 @@ export const login = (email, password) => async (dispatch) => {
 
 // Logout / Clear profile
 export const logout = () => async (dispatch) => {
-  console.log('logging out');
   dispatch({
     type: CLEAR_PROFILE,
   });

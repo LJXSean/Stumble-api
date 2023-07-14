@@ -18,11 +18,11 @@ const PostItem = ({
   removeLike,
   deletePost,
   auth,
-  post: { _id, name, title, body, avatar, user, likes, comments, date },
+  post: { _id, name, title, avatar, user, likes, comments, date },
   showActions,
 }) => {
   let color = '#000';
-  if (auth.isAuthenticated && !auth.isLoading) {
+  if (auth.isAuthenticated && !auth.isLoading && auth.user) {
     color = likes.some((like) => auth.user._id === like.user)
       ? '#2E8B57'
       : '#000';
@@ -65,6 +65,7 @@ const PostItem = ({
               </a>
               {auth.isAuthenticated &&
                 !auth.isLoading &&
+                auth.user &&
                 user === auth.user._id && (
                   <button
                     onClick={() => deletePost(_id)}
