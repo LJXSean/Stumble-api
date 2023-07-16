@@ -15,7 +15,7 @@ const Post = ({ getPost, post: { post, isLoading, error } }) => {
   console.log(Object.keys(error).length === 0);
   return (
     <section className='container'>
-      {Object.keys(error).length !== 0 ? (
+      {error.status === 404 ? (
         <span>ERROR: Cannot Find Post</span>
       ) : isLoading || post === null ? (
         <Spinner />
