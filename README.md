@@ -10,6 +10,7 @@ Features:
 ![ScreenShot](https://github.com/LJXSean/Stumble/assets/110801974/21bacebe-76ca-454a-85fe-378dd1694726)
 
 - Dashboard
+  
 ![image](https://github.com/LJXSean/Stumble/assets/110801974/acd511a6-7081-404a-9732-d1d7dabf32d7)
 
 - Developer Profiles
