@@ -12,7 +12,7 @@ const Post = ({ getPost, post: { post, isLoading, error } }) => {
   useEffect(() => {
     getPost(id);
   }, [getPost]);
-  console.log(Object.keys(error).length === 0);
+
   return (
     <section className='container'>
       {error.status === 404 ? (
@@ -24,7 +24,7 @@ const Post = ({ getPost, post: { post, isLoading, error } }) => {
           <Link to='/posts' className='btn'>
             Back To Posts
           </Link>
-          <FullPost post={post} showActions={false} />
+          <FullPost id={id} post={post} />
           <CommentForm postId={post._id} />
           <div className='comments'>
             {post.comments.map((comment) => (
