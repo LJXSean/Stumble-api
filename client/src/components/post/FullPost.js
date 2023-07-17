@@ -18,8 +18,7 @@ const FullPost = ({
       ? '#FF4433'
       : '#000';
   }
-  console.log(likes);
-  console.log(user);
+
   return (
     <div className='full-post'>
       <div className='full-post-header'>
@@ -37,7 +36,7 @@ const FullPost = ({
         <span className='full-post-tag'>Insert tag here </span>
       </div>
 
-      {body && <p className='full-post-body'>{body}</p>}
+      {body && <pre className='full-post-body'>{body}</pre>}
 
       <div className='full-post-body'>
         <button
