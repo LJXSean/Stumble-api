@@ -1,17 +1,86 @@
+.layout {
+    --Layout-sidebar-width: 296px;
+}
+
+.root {
+  padding: 0;
+  margin: 0
+}
+
 .profile-container {
-    max-width: 1280px;
+    max-width: 1300px;
+    width: 95vw;
     margin: auto;
     overflow: hidden;
-    padding: 0 2rem;
+    padding: 0 0;
     margin-top: 6rem;
     margin-bottom: 3rem;
-    background-color: blueviolet;
   }
   
   .layout {
+    --Layout-gutter: 16px;
     grid-gap: var(--Layout-gutter);
     grid-auto-flow: column;
     grid-template-columns: auto 0 minmax(0, calc(100% - var(--Layout-sidebar-width) - var(--Layout-gutter)));
-    --Layout-gutter: 16px;
     display: grid;
+  }
+
+  .layout .layout-sidebar {
+    grid-column: 1;
+    width: var(--Layout-sidebar-width)
+  }
+
+  .layout-main {
+    grid-column: 2/span 2;
+  }
+
+  .img-border {
+    border: medium solid rgb(235, 234, 234);
+  }
+
+  .p-name { 
+    font-size: 24px;
+    line-height: 1.25;
+  }
+
+  .p-desc {
+    margin: 16px 0;
+    font-size: var(--h4-size, 16px) !important;
+  }
+
+  .p-btn {
+    margin-bottom: 16px; 
+    width: 100%;
+    padding: 5px 16px;
+    text-align: center;
+    border-radius: 6px;
+    border: 1px solid #c7c6c6;
+    background-color: #fafafa;
+    font-size: 16px;
+  }
+
+  .p-btn:hover {
+    background-color: #f3f3f3;
+  }
+
+  .p-icon {
+    padding-left: 10px;
+  }
+
+  .carousel {
+    height: 450px;
+    background-color: bisque;
+    margin-top: 16px;
+  }
+
+  .projects {
+    height: 300px;
+    background-color:aquamarine;
+    margin-top: 16px;
+  }
+
+  .bottom {
+    height: 1000px;
+    margin-top: 16px;
+    background-color: rgb(113, 146, 255);
   }
