@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import formatDate from '../../utils/formatDate';
@@ -11,9 +11,13 @@ const FullPost = ({
   deletePost,
   auth,
   post: { _id, name, title, body, avatar, user, likes, comments, date },
-  showActions,
 }) => {
-  const color = likes.some((like) => user === like.user) ? '#FF4433' : '#000';
+  let color = '#000';
+  if (auth.isAuthenticated && !auth.isLoading && auth.user) {
+    color = likes.some((like) => auth.user._id === like.user)
+      ? '#FF4433'
+      : '#000';
+  }
 
   return (
     <div className='full-post'>
@@ -32,7 +36,7 @@ const FullPost = ({
         <span className='full-post-tag'>Insert tag here </span>
       </div>
 
-      {body && <p className='full-post-body'>{body}</p>}
+      {body && <pre className='full-post-body'>{body}</pre>}
 
       <div className='full-post-body'>
         <button
