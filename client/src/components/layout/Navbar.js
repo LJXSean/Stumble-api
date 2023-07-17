@@ -16,9 +16,9 @@ const Navbar = ({ auth, logout }) => {
         <Link to='/posts'>Posts</Link>
       </li>
       <li>
-        <Link to='/dashboard'>
+        <Link to='/myprofile'>
           <i className='fas fa-user'></i>
-          <span className='hide-sm'> Dashboard</span>
+          <span className='hide-sm'> My Profile</span>
         </Link>
       </li>
       <li>

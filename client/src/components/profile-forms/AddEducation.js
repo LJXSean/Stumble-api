@@ -27,7 +27,7 @@ const AddEducation = ({ addEducation }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     addEducation(formData).then((success) => {
-      if (success) navigate('/dashboard');
+      if (success) navigate('/myprofile');
     });
   };
   return (
@@ -104,7 +104,7 @@ const AddEducation = ({ addEducation }) => {
           />
         </div>
         <input type='submit' className='btn btn-primary my-1' />
-        <Link className='btn btn-light my-1' to='/dashboard'>
+        <Link className='btn btn-light my-1' to='/myprofile'>
           Go Back
         </Link>
       </form>

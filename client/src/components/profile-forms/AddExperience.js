@@ -26,7 +26,7 @@ const AddExperience = ({ addExperience }) => {
   const onSubmit = (e) => {
     e.preventDefault();
     addExperience(formData).then((success) => {
-      if (success) navigate('/dashboard');
+      if (success) navigate('/myprofile');
     });
   };
   return (
@@ -111,7 +111,7 @@ const AddExperience = ({ addExperience }) => {
           ></textarea>
         </div>
         <input type='submit' className='btn btn-primary my-1' />
-        <Link className='btn btn-light my-1' to='/dashboard'>
+        <Link className='btn btn-light my-1' to='/myprofile'>
           Go Back
         </Link>
       </form>

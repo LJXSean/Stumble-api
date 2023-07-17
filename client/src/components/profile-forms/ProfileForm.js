@@ -70,7 +70,7 @@ const ProfileForms = ({
   const onSubmit = (e) => {
     e.preventDefault();
     createProfile(formData).then((success) => {
-      if (success && !exists) navigate('/dashboard');
+      if (success && !exists) navigate('/myprofile');
     });
   };
 
