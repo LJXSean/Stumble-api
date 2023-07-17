@@ -50,6 +50,10 @@ export default function post(state = initialState, action) {
         posts: state.posts.map((post) =>
           post._id === payload.postId ? { ...post, likes: payload.likes } : post
         ),
+        post:
+          state.post && state.post._id === payload.postId
+            ? { ...state.post, likes: payload.likes }
+            : state.post,
         isLoading: false,
       };
     case POST_ERROR:
