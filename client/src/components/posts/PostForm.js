@@ -9,6 +9,29 @@ const PostForm = ({ addPost }) => {
   const [title, setTitle] = useState();
   const navigate = useNavigate();
 
+  const handleTabKeyPress = (e) => {
+    if (e.key === 'Tab') {
+      e.preventDefault();
+
+      // Get the current cursor position
+      const { selectionStart, selectionEnd } = e.target;
+
+      // Insert four spaces at the cursor position
+      const newBody =
+        body.substring(0, selectionStart) +
+        '    ' +
+        body.substring(selectionEnd);
+
+      setBody(newBody);
+    }
+  };
+
+  const handleEnterKeyPress = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault();
+    }
+  };
+
   return (
     <div className='container'>
       {' '}
@@ -26,16 +49,18 @@ const PostForm = ({ addPost }) => {
             navigate('/posts');
           }}
         >
-          <textarea
+          <input
             name='title'
             className='create-formbox'
+            type='text'
             cols='30'
             rows='1'
             placeholder='Title'
             value={title}
             onChange={(e) => setTitle(e.target.value)}
+            onKeyDown={handleEnterKeyPress}
             required
-          ></textarea>
+          ></input>
           <textarea
             name='body'
             className='create-formbox'
@@ -44,6 +69,7 @@ const PostForm = ({ addPost }) => {
             placeholder='Text (optional)'
             value={body}
             onChange={(e) => setBody(e.target.value)}
+            onKeyDown={handleTabKeyPress}
           ></textarea>
           <input type='submit' class='btn btn-dark my-1' value='Submit'></input>{' '}
         </form>
