@@ -7,9 +7,9 @@ import { Link, useParams } from 'react-router-dom';
 import './profile.css';
 import ProfileSidebar from './ProfileSidebar';
 import ProfileCarousel from './ProfileCarousel';
-import ProfileGithub from '../profile/ProfileGithub';
-import ProfileEducation from '../profile/ProfileEducation';
-import ProfileExperience from '../profile/ProfileExperience';
+import ProfileGithub from './ProfileGithub';
+import ProfileEducation from './ProfileEducation';
+import ProfileExperience from './ProfileExperience';
 import ProjectCards from './ProjectCards';
 
 // props.match used to get the params from the URL
@@ -79,8 +79,8 @@ const Profile = ({ getProfileById, profile: { profile, isLoading }, auth }) => {
               <p className='projects'>Projects</p>
 
               <div className='p-card-container'>
-                {projects.map((project) => (
-                  <ProjectCards project={project} />
+                {projects.map((project, index) => (
+                  <ProjectCards key={index} project={project} />
                 ))}
               </div>
 

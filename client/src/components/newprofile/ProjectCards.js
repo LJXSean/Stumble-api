@@ -12,8 +12,10 @@ const ProjectCards = ({ project: { title, description, tags } }) => {
         {title}
       </a>
       <p className='card-description'>{description}</p>
-      {tags.map((tag) => (
-        <span className='card-tag'>{tag}</span>
+      {tags.map((tag, i) => (
+        <span className='card-tag' key={i}>
+          {tag}
+        </span>
       ))}
     </div>
   );

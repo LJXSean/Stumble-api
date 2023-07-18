@@ -37,7 +37,7 @@ const ProfileCarousel = () => {
       loop={true}
     >
       {imgs.map((i, index) => (
-        <SwiperSlide className='slide'>
+        <SwiperSlide className='slide' key={index}>
           <img
             src={i}
             alt='ProjectImages'

@@ -156,6 +156,7 @@ img {
   transition: opacity 0.2s ease-in;
   outline: none;
   z-index: 1;
+  border-radius: 5px;
 }
 
 .badge {
