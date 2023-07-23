@@ -60,7 +60,7 @@ const PostItem = ({
                 <i className='fas fa-thumbs-down'></i>
               </button>
               <a className='btn' href={`/posts/${_id}`}>
-                <i class='fa-solid fa-comment'></i>{' '}
+                <i className='fa-solid fa-comment'></i>{' '}
                 {comments.length > 0 && commentLabel(comments.length)}
               </a>
               {auth.isAuthenticated &&

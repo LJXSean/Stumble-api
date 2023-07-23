@@ -10,7 +10,7 @@ import ProfileForm from './components/profile-forms/ProfileForm';
 import AddExperience from './components/profile-forms/AddExperience';
 import AddEducation from './components/profile-forms/AddEducation';
 import Profiles from './components/profiles/Profiles';
-import Profile from './components/profile/Profile';
+import Profile from './components/newprofile/Profile';
 import Posts from './components/posts/Posts';
 import Post from './components/post/Post';
 import PostForm from './components/posts/PostForm';
