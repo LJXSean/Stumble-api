@@ -1,0 +1,89 @@
+.my-btn {
+  border-radius: 4px;
+  display: inline-block;
+  background: #82a7ff;
+  color: #333;
+  padding: 0.4rem 1.3rem;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  margin-right: 0.5rem;
+  transition: opacity 0.2s ease-in;
+  outline: none;
+}
+
+.primary-btn {
+  background: linear-gradient(45deg, #e66465, #9198e5);
+  color: white;
+}
+
+.primary-btn:hover {
+  background: linear-gradient(135deg, #e66465, #9198e5);
+}
+
+.sec-btn {
+  background: white;
+}
+
+.landing-bottom {
+  margin: auto;
+  margin-top: 10px;
+  position: relative;
+  background-color: #000;
+  color: #e31616;
+  height: 100%;
+  width: 80%;
+  display: flex;
+  flex-direction: row;
+}
+
+.cards-container {
+  position: relative;
+  height: 100%;
+  width: 80%;
+  margin: auto;
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  /* background-color: yellow; */
+  padding:10px;
+  display: flex;
+  flex-direction: row;
+  flex-basis: 33.333333%;
+}
+
+.cardItem{
+  padding: 5px;
+}
+
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  font-size: 11px;
+  align-items: center;
+}
+
+.link {
+  color: #000;
+}
+
+
+.subTitle {
+  position: relative;
+  width: 80%;
+  margin: auto;
+}
+
+.cardIndex {
+  color: #e3e3e3d6;
+}
+
+.date {
+  font-size: small;
+  margin-right: 5px;
+}
