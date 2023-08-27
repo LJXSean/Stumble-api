@@ -4,12 +4,14 @@ const dotenv = require("dotenv");
 dotenv.config();
 const app = express();
 const path = require("path");
+const cors = require("cors");
 
 // Connect Database
 connectDB();
 
 // Init middleware (for req.body parser in user api)
 app.use(express.json({ extended: false }));
+app.use(cors());
 
 // Define Routes
 app.use("/api/users", require("./routes/api/users"));
